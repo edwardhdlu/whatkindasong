@@ -1,6 +1,6 @@
 // utility functions
 
-function mapResponse(result, genres) {
+function mapResponse(result, genres, accuracy) {
     if (result < 0) {
         $(".status").text("Sorry, I don't know what that sounds like :(");
     }
@@ -8,7 +8,7 @@ function mapResponse(result, genres) {
         $(".status").text("Sorry, I haven't heard any songs like this :(");
     }
     else {
-        $(".status").html("I think this is a <strong>" + genres[result].replace("_", " ") + "</strong> song");;
+        $(".status").html("I am <strong>" + accuracy + "%</strong> sure this is a <strong>" + genres[result].replace("_", " ") + "</strong> song");;
     }
 }
 
@@ -172,9 +172,10 @@ $(document).ready(function() {
 
 	       	var t = transpose(y)[0];
 	       	var result = t.indexOf(Math.max.apply(null, t));
+	       	var accuracy = (t[result] * 100).toFixed(1);
 
 	       	console.log(t);
-	       	mapResponse(parseInt(result), genres);
+	       	mapResponse(result, genres, accuracy);
 	    });
     });
 });
