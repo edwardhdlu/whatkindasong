@@ -61,7 +61,7 @@ hidden_3 = tf.nn.tanh(tf.matmul(hidden_2, w_hidden_3) + b_hidden_3)
 
 w_output = tf.Variable(tf.random_normal([HIDDEN_NODES, LABELS], stddev=0.01, dtype=tf.float32))
 b_output = tf.Variable(tf.zeros([1, LABELS], dtype=tf.float32))
-y = tf.nn.softmax(tf.matmul(hidden_3, w_output) + b_output)
+y = tf.nn.relu(tf.matmul(hidden_3, w_output) + b_output)
 
 
 cross_entropy = -tf.reduce_sum(y_ * tf.log(y))
