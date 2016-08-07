@@ -122,7 +122,7 @@ $(document).ready(function() {
     var w_hidden_3, b_hidden_3;
     var w_output, b_output;
 
-    const root = "https://raw.githubusercontent.com/edwardhdlu/whatkindasong/gh-pages/data/"
+    const root = "https://raw.githubusercontent.com/edwardhdlu/whatkindasong/master/data/"
 
     var req1 = $.get(root + "w_hidden.csv", function(data) { w_hidden = data.split("\n"); });
     var req2 = $.get(root + "b_hidden.csv", function(data) { b_hidden = data.split("\n"); });
